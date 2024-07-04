@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Site Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .sidebar {
+            min-width: 250px;
+            max-width: 250px;
+            background-color: #343a40;
+            color: #fff;
+            min-height: 100vh;
+            position: sticky;
+            top: 0;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #495057;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar .navbar-brand, .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar .nav-link:hover {
+            color: #adb5bd;
+        }
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                max-width: 100%;
+                min-height: auto;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column p-3">
+        <h4 class="text-center">Admin Dashboard</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Movie Admin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <h1>Dashboard</h1>
+            <p>Welcome to the admin dashboard. Use the sidebar to navigate.</p>
+
+            <!-- Example Dashboard Widgets -->
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Total Movies</h5>
+                            <p class="card-text display-4">123</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Total Users</h5>
+                            <p class="card-text display-4">456</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Total Reviews</h5>
+                            <p class="card-text display-4">789</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Average Rating</h5>
+                            <p class="card-text display-4">4.5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies Table -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Movies</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Genre</th>
+                                <th>Rating</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Movie Title 1</td>
+                                <td>Action</td>
+                                <td>4.5</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Movie Title 2</td>
+                                <td>Drama</td>
+                                <td>4.0</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Users</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john.doe@example.com</td>
+                                <td>Admin</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>jane.smith@example.com</td>
+                                <td>User</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Movie Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Add/Edit Movie</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="movieTitle">Movie Title</label>
+                            <input type="text" class="form-control" id="movieTitle" placeholder="Enter movie title">
+                        </div>
+                        <div class="form-group">
+                            <label for="movieGenre">Genre</label>
+                            <input type="text" class="form-control" id="movieGenre" placeholder="Enter genre">
+                        </div>
+                        <div class="form-group">
+                            <label for="movieRating">Rating</label>
+                            <input type="number" class="form-control" id="movieRating" placeholder="Enter rating" step="0.1" min="0" max="5">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Charts Section (example placeholders) -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Movie Ratings Chart</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="ratingsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">User Registrations Chart</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="registrationsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Example charts
+        var ctx1 = document.getElementById('ratingsChart').getContext('2d');
+        var ratingsChart = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Movie 1', 'Movie 2', 'Movie 3'],
+                datasets: [{
+                    label: 'Ratings',
+                    data: [4.5, 4.0, 3.5],
+                    backgroundColor: ['#007bff', '#dc3545', '#ffc107']
+                }]
+            }
+        });
+
+        var ctx2 = document.getElementById('registrationsChart').getContext('2d');
+        var registrationsChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March'],
+                datasets: [{
+                    label: 'Registrations',
+                    data: [30, 45, 60],
+                    backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                    borderColor: '#007bff',
+                    fill: true
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
